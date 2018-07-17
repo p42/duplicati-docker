@@ -1,0 +1,7 @@
+#!/usr/bin/with-contenv sh
+
+DUPLICATI_PASS=${PASSWORD:="123454321"}
+
+/usr/bin/mono /opt/duplicati-latest/Duplicati.Server.exe --webservice-port=8200 \
+ --webservice-interface=any --webservice-password=${DUPLICATI_PASS} \
+ --server-datafolder=/etc/duplicati
