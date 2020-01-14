@@ -1,15 +1,15 @@
 FROM project42/s6-archlinux:latest
 MAINTAINER Jordan Clark mail@jordanclark.us
 
-ENV DUPLICATI_VERSION 2.0.4.15-1
-ENV DUPLICATI_MD5HASH b099a144d91af95998d15fc2f1783459
+ENV DUPLICATI_VERSION 2.0.4.38-1
+ENV DUPLICATI_MD5HASH 3ea6b78bcea64fbd7d2a51f8262672e9
 ENV HARDWARE_ARCH x86_64
 
 COPY container-files /
 
 RUN pacman --noconfirm -Syu && \
 pacman --noconfirm -S binutils fakeroot sudo && \
-pacman --noconfirm -S gtk-sharp-2 mono && \
+pacman --noconfirm -S gtk-sharp-2 mono grep file gawk && \
 mkdir /home/build && \
 chgrp nobody /home/build && \
 chmod g+ws /home/build && \
